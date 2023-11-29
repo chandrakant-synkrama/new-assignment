@@ -43,18 +43,18 @@ export default function Resume() {
           }}
           alt="Frame2"
         />
-        <div className=" w-[900px] flex gap-5 align-top">
+        <div className="w-[900px] flex gap-5 align-top">
           <div className=" w-[900px] flex">
-            <div className="w-full my-6 mx-6">
+            <div className="w-full my-6 mx-5">
               <img
                 src={profile.profile_image}
                 alt="fsdaasd"
-                width={"100%"}
+                width={"98%"}
                 className="rounded-br-[90px] h-[250px]"
               />
             </div>
             <div className="w-full mb-5 text-[#fff] my-5">
-              <div className="flex  flex-col mr-3 mb-4 ">
+              <div className="flex  flex-col mr-5 mb-4 ">
                 <p className="text-3xl font-semibold tracking-widest text-end mb-2">
                   {profile.firstName}
                 </p>
@@ -69,8 +69,9 @@ export default function Resume() {
                   backgroundColor: "gray",
                   margin: 0,
                 }}
+                className="mr-5"
               />
-              <div className="flex items-end justify-end flex-col mt-3 mr-3 text-sm gap-1">
+              <div className="flex items-end justify-end flex-col mt-3 mr-5 text-sm gap-1">
                 <p className="flex gap-2 items-center">
                   {profile.email} <MailIcon />
                 </p>
@@ -87,7 +88,7 @@ export default function Resume() {
             </div>
           </div>
         </div>
-        <div className="w-[900px] px-2 flex gap-5 ">
+        <div className="w-[900px] px-5 flex gap-5">
           <div className="w-full">
             <div className="mb-3">
               <HeadingCommon heading="Profile" />

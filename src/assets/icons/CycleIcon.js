@@ -4,8 +4,8 @@ export default function CycleIcon() {
   return (
     <>
       <svg
-        width="40"
-        height="40"
+        width="20"
+        height="20"
         viewBox="0 0 503 405"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

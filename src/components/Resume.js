@@ -47,7 +47,7 @@ export default function Resume() {
           <div className="w-full  px-2">
             <div className="flex items-center justify-center my-6">
               <img
-                src="https://cdn.pixabay.com/photo/2023/10/27/16/15/honey-bee-8345726_640.jpg"
+                src="https://cdn.pixabay.com/photo/2016/04/25/07/15/man-1351317_640.png"
                 alt="fsdaasd"
                 width={"90%"}
                 height={"100px"}

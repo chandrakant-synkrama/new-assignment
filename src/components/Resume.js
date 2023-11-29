@@ -67,7 +67,7 @@ export default function Resume() {
                   border: 0,
                   height: "1.5px",
                   backgroundColor: "gray",
-                  margin: 0,
+                  marginRight: "20px",
                 }}
                 className="mr-5"
               />

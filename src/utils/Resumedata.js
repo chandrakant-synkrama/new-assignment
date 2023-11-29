@@ -85,7 +85,7 @@ export const ResumeObj = {
   ],
   projects: [
     {
-      year: "2022-2023",
+      year: "2022 - 2023",
       title: "Hype",
       director: "Creative Director",
       points: [
@@ -95,7 +95,7 @@ export const ResumeObj = {
       ],
     },
     {
-      year: "2022-2023",
+      year: "2022 - 2023",
       title: "Hype Admin",
       director: "Creative Director",
       points: [

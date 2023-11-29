@@ -44,67 +44,16 @@ export default function Resume() {
           alt="Frame2"
         />
         <div className=" w-[900px] flex gap-5 align-top">
-          <div className="w-full  px-2">
-            <div className="flex items-center justify-center my-6">
+          <div className=" w-[900px] flex">
+            <div className="w-full my-6 mx-6">
               <img
-                src="https://cdn.pixabay.com/photo/2016/04/25/07/15/man-1351317_640.png"
+                src={profile.profile_image}
                 alt="fsdaasd"
-                width={"90%"}
-                height={"100px"}
-                className="rounded-br-[90px]"
+                width={"100%"}
+                className="rounded-br-[90px] h-[250px]"
               />
             </div>
-            <div className="mb-3 pt-1">
-              <HeadingCommon heading="Profile" />
-              <div className="text-sm tracking-wide	text-justify mt-2">
-                {profile.bio}
-              </div>
-            </div>
-            <div className="mb-3">
-              <HeadingCommon heading="Education" />
-
-              <div className="mt-2">
-                {education?.map((item, index) => (
-                  <div className="flex gap-3 items-start mb-2 ">
-                    <p className="text-[#CE6CAA]">{item.year}</p>
-                    <div className="text-sm mt-[-2px]">
-                      <p className="my-1">{item.degree}</p>
-                      <p className="my-1">{item.university}</p>
-                      <p className="my-1">GPA Score : {item.cgpa}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="mb-3">
-              <HeadingCommon heading="Projects" />
-
-              <div className="mt-2">
-                {projects?.map((item, index) => (
-                  <div className="flex gap-3 ">
-                    <p className="text-[#CE6CAA] whitespace-nowrap	">
-                      {item.year}
-                    </p>
-                    <div>
-                      <div className="text-sm">
-                        <p className="mb-1">{item.title}</p>
-                        <p className="mb-2">{item.director}</p>
-                      </div>
-                      <ul className="list-none">
-                        {item.points?.map((item, index) => (
-                          <li className="relative before:inline-block before:w-1.5 before:h-1.5 before:bg-[#CE6CAA] before:mr-1 before:rounded-full before:content-['']">
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="w-full px-2">
-            <div className="mb-5 text-[#fff] my-5">
+            <div className="w-full mb-5 text-[#fff] my-5">
               <div className="flex  flex-col mr-3 mb-4 ">
                 <p className="text-3xl font-semibold tracking-widest text-end mb-2">
                   {profile.firstName}
@@ -136,7 +85,61 @@ export default function Resume() {
                 </p>
               </div>
             </div>
-            <div className="mb-3 mt-20">
+          </div>
+        </div>
+        <div className="w-[900px] px-2 flex gap-5 ">
+          <div className="w-full">
+            <div className="mb-3">
+              <HeadingCommon heading="Profile" />
+              <div className="text-sm tracking-wide	text-justify mt-2">
+                {profile.bio}
+              </div>
+            </div>
+            <div className="mb-3">
+              <HeadingCommon heading="Education" />
+
+              <div className="mt-2">
+                {education?.map((item, index) => (
+                  <div className="flex gap-3 items-start mb-2 ">
+                    <p className="text-[#CE6CAA]">{item.year}</p>
+                    <div className="text-sm mt-[-2px]">
+                      <p className="my-1">{item.degree}</p>
+                      <p className="my-1">{item.university}</p>
+                      <p className="my-1">GPA Score : {item.cgpa}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mb-3">
+              <HeadingCommon heading="Projects" />
+
+              <div className="mt-2">
+                {projects?.map((item, index) => (
+                  <div className="flex gap-3 mb-3">
+                    <p className="text-[#CE6CAA] whitespace-nowrap	">
+                      {item.year}
+                    </p>
+                    <div>
+                      <div className="text-base mb-1">
+                        <p className="">{item.title}</p>
+                        <p className="">{item.director}</p>
+                      </div>
+                      <ul className="list-none text-sm">
+                        {item.points?.map((item, index) => (
+                          <li className="mb-1 relative before:inline-block before:w-1.5 before:h-1.5 before:bg-[#CE6CAA] before:mr-1 before:rounded-full before:content-['']">
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="w-full">
+            <div className="mb-3">
               <HeadingCommon heading="Skills" />
               <div className="mt-2">
                 {skills?.map((item, index) => (
@@ -159,12 +162,11 @@ export default function Resume() {
             <div className="mb-3">
               <HeadingCommon heading="Achievements" />
               <div className="mt-2">
-                <p className="text-sm tracking-wide	text-justify mb-3">
-                  {profile.achivements.slice(0, 100)}
-                </p>
-                <p className="text-sm tracking-wide	text-justify	">
-                  {profile.achivements.slice(100, profile.achivements.length)}
-                </p>
+                {profile?.achivements?.map((item, index) => (
+                  <p className="text-sm tracking-wide	text-justify mb-3">
+                    {item}
+                  </p>
+                ))}
               </div>
             </div>
             <div className="mb-3">

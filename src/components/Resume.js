@@ -1,29 +1,35 @@
 import { Progress } from "antd";
 import React from "react";
-import TravelIcon from "../assets/icons/TravelIcon";
-import Reading from "../assets/icons/Reading";
-import GamesIcon from "../assets/icons/GamesIcon";
-import CycleIcon from "../assets/icons/CycleIcon";
 import MailIcon from "../assets/icons/MailIcon";
 import PhoneIcon from "../assets/icons/PhoneIcon";
 import LocationIcon from "../assets/icons/LocationIcon";
 import GitIcon from "../assets/icons/GitIcon";
 import Frame1 from "../assets/images/Frame1.png";
 import Frame2 from "../assets/images/Frame2.png";
-import Frame from "../assets/images/Frame.png";
+import HeadingCommon from "./HeadingCommon";
+import ProgresBars from "./ProgresBars";
+import { ResumeObj } from "../utils/Resumedata";
 
 export default function Resume() {
+  const { profile, hobbies, skills, languages, education, projects } =
+    ResumeObj;
   return (
     <div className="flex justify-center w-full h-full relative">
-      <div className="relative">
+      <div
+        className="relative border border-gray-200"
+        style={{
+          boxShadow: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",
+          paddingBottom: "80px",
+        }}
+      >
         <img
           src={Frame1}
           style={{
             position: "absolute",
             top: 0,
             zIndex: -1,
-            width: "50vw",
-            // height: "300px",
+            width: "900px",
+            height: "350px",
           }}
           alt="Frame1"
         />
@@ -31,15 +37,15 @@ export default function Resume() {
           src={Frame2}
           style={{
             position: "absolute",
-            bottom: -80,
+            bottom: 0,
             zIndex: -1,
-            width: "50vw",
+            width: "900px",
           }}
           alt="Frame2"
         />
-        <div className=" w-[50vw]  flex gap-5">
-          <div className="w-full  ">
-            <div className="flex items-center justify-center my-5">
+        <div className=" w-[900px] flex gap-5 align-top">
+          <div className="w-full  px-2">
+            <div className="flex items-center justify-center my-6">
               <img
                 src="https://cdn.pixabay.com/photo/2023/10/27/16/15/honey-bee-8345726_640.jpg"
                 alt="fsdaasd"
@@ -48,109 +54,64 @@ export default function Resume() {
                 className="rounded-br-[90px]"
               />
             </div>
-            <div className="mb-3">
-              <div className="text-xl font-medium text-[#CE6CAA]">Profile</div>
-              <hr
-                className="text-[#CE6CAA]"
-                style={{
-                  border: 0,
-                  height: "1.5px",
-                  backgroundColor: "#CE6CAA",
-                  margin: 0,
-                }}
-              />
-              <div className="text-sm tracking-wide	text-justify	">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
+            <div className="mb-3 pt-1">
+              <HeadingCommon heading="Profile" />
+              <div className="text-sm tracking-wide	text-justify mt-2">
+                {profile.bio}
               </div>
             </div>
             <div className="mb-3">
-              <div className="text-xl font-medium text-[#CE6CAA]">
-                Education
-              </div>
-              <hr
-                className="text-[#CE6CAA]"
-                style={{
-                  border: 0,
-                  height: "1.5px",
-                  backgroundColor: "#CE6CAA",
-                  margin: 0,
-                }}
-              />
+              <HeadingCommon heading="Education" />
+
               <div className="mt-2">
-                <div className="flex gap-3 items-start mb-2">
-                  <div className="text-[#CE6CAA]">2012-2016</div>
-                  <div className="text-sm">
-                    Bachelor's Degree in Graphic <br />
-                    Designing University of Delhi <br />
-                    GPA Score : 7.0
+                {education?.map((item, index) => (
+                  <div className="flex gap-3 items-start mb-2 ">
+                    <p className="text-[#CE6CAA]">{item.year}</p>
+                    <div className="text-sm mt-[-2px]">
+                      <p className="my-1">{item.degree}</p>
+                      <p className="my-1">{item.university}</p>
+                      <p className="my-1">GPA Score : {item.cgpa}</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex gap-3 items-start mb-2">
-                  <div className="text-[#CE6CAA]">2012-2016</div>
-                  <div className="text-sm ">
-                    Bachelor's Degree in Graphic <br />
-                    Designing University of Delhi <br />
-                    GPA Score : 7.0
-                  </div>
-                </div>
-                <div className="flex gap-3 items-start mb-2">
-                  <div className="text-[#CE6CAA]">2012-2016</div>
-                  <div className="text-sm">
-                    Bachelor's Degree in Graphic <br />
-                    Designing University of Delhi <br />
-                    GPA Score : 7.0
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
-            <div>
-              <div className="text-xl font-medium text-[#CE6CAA]">Projects</div>
-              <hr
-                style={{
-                  border: 0,
-                  height: "1.5px",
-                  backgroundColor: "#CE6CAA",
-                  margin: 0,
-                }}
-              />
-              <div>
-                <div className="flex gap-3 items-start mb-2">
-                  <div className="text-[#CE6CAA]">2020-2019</div>
-                  <div className="text-sm">
-                    <div>Project Title</div>
-                    <div>Creative Director</div>
-                    <div className="container">
-                      <ul className="list-none ">
-                        <li className="relative before:inline-block before:w-1.5 before:h-1.5 before:bg-[#CE6CAA] before:mr-1 before:rounded-full before:content-['']">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          velit. elit.
-                        </li>
-                        <li className="relative before:inline-block before:w-1.5 before:h-1.5 before:bg-[#CE6CAA] before:mr-1 before:rounded-full before:content-['']">
-                          Praesent erat elit, lacinia vitae hendrerit sed,
-                          gravida nec eros. Hobbies
-                        </li>
-                        <li className="relative before:inline-block before:w-1.5 before:h-1.5 before:bg-[#CE6CAA] before:mr-1 before:rounded-full before:content-['']">
-                          Maecenas quis odio sollicitudin, aliquet risus eget,
-                          luctus nisi.
-                        </li>
-                        {/* Add more items as needed */}
+            <div className="mb-3">
+              <HeadingCommon heading="Projects" />
+
+              <div className="mt-2">
+                {projects?.map((item, index) => (
+                  <div className="flex gap-3 ">
+                    <p className="text-[#CE6CAA] whitespace-nowrap	">
+                      {item.year}
+                    </p>
+                    <div>
+                      <div className="text-sm">
+                        <p className="mb-1">{item.title}</p>
+                        <p className="mb-2">{item.director}</p>
+                      </div>
+                      <ul className="list-none">
+                        {item.points?.map((item, index) => (
+                          <li className="relative before:inline-block before:w-1.5 before:h-1.5 before:bg-[#CE6CAA] before:mr-1 before:rounded-full before:content-['']">
+                            {item}
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
-          <div className="w-full">
+          <div className="w-full px-2">
             <div className="mb-5 text-[#fff] my-5">
-              <div className="flex items-end justify-end flex-col mr-3">
-                <p className="text-3xl font-semibold ">Chandrakant Deore</p>
-                <p className="text-2xl">Graphic Designer</p>
+              <div className="flex  flex-col mr-3 mb-4 ">
+                <p className="text-3xl font-semibold tracking-widest text-end mb-2">
+                  {profile.firstName}
+                </p>
+                <p className="text-2xl tracking-widest italic text-end">
+                  {profile.designation}
+                </p>
               </div>
               <hr
                 style={{
@@ -162,173 +123,80 @@ export default function Resume() {
               />
               <div className="flex items-end justify-end flex-col mt-3 mr-3 text-sm gap-1">
                 <p className="flex gap-2 items-center">
-                  cab@gmail.com <MailIcon />
+                  {profile.email} <MailIcon />
                 </p>
                 <p className="flex gap-2 items-center">
-                  +91 9284714963 <PhoneIcon />
+                  {profile.phone} <PhoneIcon />
                 </p>
                 <p className="flex gap-2 items-center">
-                  Pune, India <LocationIcon />
+                  {profile.location} <LocationIcon />
                 </p>
                 <p className="flex gap-2 items-center">
-                  https://github.com/ <GitIcon />
+                  {profile.githubLink} <GitIcon />
                 </p>
               </div>
             </div>
-            <div className="mb-3 mt-10">
-              <div className="text-xl font-medium text-[#CE6CAA] ">Skills</div>
-              <hr
-                style={{
-                  border: 0,
-                  height: "1.5px",
-                  backgroundColor: "#CE6CAA",
-                  margin: 0,
-                }}
-              />
-              <div>
-                <div className="">
-                  Photoshop
-                  <Progress
-                    percent={30}
-                    strokeColor={"#CE6CAA"}
-                    style={{
-                      borderRadius: 0,
-                      margin: 0,
-                      padding: 0,
-                      width: "80%",
-                    }}
-                  />
-                </div>
-                <div className="">
-                  Creative Writing
-                  <Progress
-                    percent={30}
-                    strokeColor={"#CE6CAA"}
-                    style={{
-                      borderRadius: 0,
-                      margin: 0,
-                      padding: 0,
-                      width: "80%",
-                    }}
-                  />
-                </div>{" "}
-                <div className="">
-                  Web Designing
-                  <Progress
-                    percent={30}
-                    strokeColor={"#CE6CAA"}
-                    style={{
-                      borderRadius: 0,
-                      margin: 0,
-                      padding: 0,
-                      width: "80%",
-                    }}
-                  />
-                </div>{" "}
-                <div className=" flex flex-col">
-                  Illustrator
-                  <Progress
-                    percent={30}
-                    strokeColor={"#CE6CAA"}
-                    style={{
-                      borderRadius: 0,
-                      margin: 0,
-                      padding: 0,
-                      width: "80%",
-                    }}
-                  />
-                </div>{" "}
+            <div className="mb-3 mt-20">
+              <HeadingCommon heading="Skills" />
+              <div className="mt-2">
+                {skills?.map((item, index) => (
+                  <div className="flex flex-col">
+                    {item.title}
+                    <Progress
+                      percent={item.percent}
+                      strokeColor={"#CE6CAA"}
+                      style={{
+                        borderRadius: 0,
+                        margin: 0,
+                        padding: 0,
+                        width: "80%",
+                      }}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
             <div className="mb-3">
-              <div className="text-xl font-medium text-[#CE6CAA]">
-                Achievements
-              </div>
-              <hr
-                style={{
-                  border: 0,
-                  height: "1.5px",
-                  backgroundColor: "#CE6CAA",
-                  margin: 0,
-                }}
-              />
-              <div>
+              <HeadingCommon heading="Achievements" />
+              <div className="mt-2">
                 <p className="text-sm tracking-wide	text-justify mb-3">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
+                  {profile.achivements.slice(0, 100)}
                 </p>
                 <p className="text-sm tracking-wide	text-justify	">
-                  It was popularised in the 1960s with the release of Letraset
-                  sheets containing Lorem Ipsum passages, and more recently with
+                  {profile.achivements.slice(100, profile.achivements.length)}
                 </p>
               </div>
             </div>
             <div className="mb-3">
-              <div className="text-xl font-medium text-[#CE6CAA]">Hobbies</div>
-              <hr
-                style={{
-                  border: 0,
-                  height: "1.5px",
-                  backgroundColor: "#CE6CAA",
-                  margin: 0,
-                }}
-              />
+              <HeadingCommon heading="Hobbies" />
               <div className="grid grid-cols-2 gap-2 mt-2">
-                <div className="flex items-center gap-1">
-                  <TravelIcon /> Travel
-                </div>
-                <div className="flex items-center gap-1">
-                  <Reading /> Reading
-                </div>
-                <div className="flex items-center gap-1">
-                  <GamesIcon /> Video games
-                </div>
-                <div className="flex items-center gap-1">
-                  <CycleIcon /> Cycling
-                </div>
+                {hobbies?.map((item, index) => {
+                  return (
+                    <div className="flex items-center gap-1">
+                      {item.icon} {item.title}
+                    </div>
+                  );
+                })}
               </div>
             </div>
-            <div className="mb-5">
-              <div className="text-xl font-medium text-[#CE6CAA]">
-                Languages
-              </div>
-              <hr
-                style={{
-                  border: 0,
-                  height: "1.5px",
-                  backgroundColor: "#CE6CAA",
-                  margin: 0,
-                }}
-              />
-              <div className="flex items-center gap-8 mt-4 ml-4">
-                <div>
-                  <Progress
-                    type="circle"
-                    percent={75}
-                    strokeColor={"#CE6CAA"}
-                    width={75}
-                    strokeWidth={10}
-                  />
-                </div>
-                <div>
-                  <Progress
-                    type="circle"
-                    percent={75}
-                    strokeColor={"#CE6CAA"}
-                    width={75}
-                    strokeWidth={10}
-                  />
-                </div>
-                <div>
-                  <Progress
-                    type="circle"
-                    percent={75}
-                    strokeColor={"#CE6CAA"}
-                    width={75}
-                    strokeWidth={10}
-                  />
-                </div>
+            <div className="">
+              <HeadingCommon heading="Languages" />
+              <div className="flex items-center gap-5 mt-4">
+                {languages.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col justify-center items-center gap-2"
+                  >
+                    <ProgresBars
+                      type={"circle"}
+                      percent={item.percent}
+                      strokeColor={"#CE6CAA"}
+                      storkeWidth={10}
+                      width={75}
+                    />
+                    {item.title}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
